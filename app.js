@@ -1,33 +1,60 @@
 // Rene & Scott's Kanban Board
-// Data stored in localStorage (we'll sync to GitHub later)
+// Data loads from tasks.json (repo) and syncs to localStorage
 
 let tasks = [];
 let editingTaskId = null;
+const TASKS_URL = 'tasks.json';
 
-// Load tasks from localStorage
-function loadTasks() {
-    const saved = localStorage.getItem('rene-kanban-tasks');
-    if (saved) {
-        tasks = JSON.parse(saved);
-    } else {
-        // Default starter tasks
-        tasks = [
-            {
-                id: Date.now(),
-                title: "Welcome to our Kanban! 🎉",
-                description: "Drag cards between columns. Click to edit.",
-                status: "todo",
-                assignee: "both",
-                created: new Date().toISOString()
-            }
-        ];
+// Load tasks - first try remote JSON, fall back to localStorage
+async function loadTasks() {
+    try {
+        // Try to load from tasks.json (the repo source of truth)
+        const response = await fetch(TASKS_URL + '?t=' + Date.now()); // cache bust
+        if (response.ok) {
+            const data = await response.json();
+            tasks = data.tasks || [];
+            console.log('✅ Loaded tasks from repo:', tasks.length, 'tasks');
+            
+            // Also save to localStorage as backup
+            saveTasks();
+        } else {
+            throw new Error('Failed to fetch');
+        }
+    } catch (error) {
+        console.log('⚠️ Could not load from repo, using localStorage');
+        // Fall back to localStorage
+        const saved = localStorage.getItem('rene-kanban-tasks');
+        if (saved) {
+            tasks = JSON.parse(saved);
+        } else {
+            // Default starter task
+            tasks = [
+                {
+                    id: Date.now(),
+                    title: "Welcome to our Kanban! 🎉",
+                    description: "Drag cards between columns. Click to edit.",
+                    status: "todo",
+                    assignee: "both",
+                    created: new Date().toISOString()
+                }
+            ];
+        }
     }
     renderTasks();
+    updateLastUpdated();
 }
 
-// Save tasks to localStorage
+// Save tasks to localStorage (local persistence)
 function saveTasks() {
     localStorage.setItem('rene-kanban-tasks', JSON.stringify(tasks));
+}
+
+// Update the "last updated" indicator
+function updateLastUpdated() {
+    const indicator = document.getElementById('sync-status');
+    if (indicator) {
+        indicator.textContent = 'Last synced: ' + new Date().toLocaleTimeString();
+    }
 }
 
 // Render all tasks
@@ -38,7 +65,10 @@ function renderTasks() {
 
     tasks.forEach(task => {
         const card = createTaskCard(task);
-        document.getElementById(task.status).appendChild(card);
+        const column = document.getElementById(task.status);
+        if (column) {
+            column.appendChild(card);
+        }
     });
 }
 
@@ -59,7 +89,7 @@ function createTaskCard(task) {
     card.innerHTML = `
         <h3>${escapeHtml(task.title)}</h3>
         ${task.description ? `<p>${escapeHtml(task.description)}</p>` : ''}
-        <span class="assignee">${assigneeLabel[task.assignee]}</span>
+        <span class="assignee">${assigneeLabel[task.assignee] || '🤝 Both'}</span>
     `;
 
     // Click to edit
@@ -140,7 +170,17 @@ document.getElementById('saveTask').addEventListener('click', () => {
     saveTasks();
     renderTasks();
     closeModal();
+    showSyncReminder();
 });
+
+// Show reminder that changes are local until synced
+function showSyncReminder() {
+    const indicator = document.getElementById('sync-status');
+    if (indicator) {
+        indicator.textContent = '⚠️ Local changes - ask Rene to sync!';
+        indicator.style.color = '#fbbf24';
+    }
+}
 
 // Cancel
 document.getElementById('cancelTask').addEventListener('click', closeModal);
@@ -152,6 +192,7 @@ document.getElementById('deleteTask').addEventListener('click', () => {
         saveTasks();
         renderTasks();
         closeModal();
+        showSyncReminder();
     }
 });
 
@@ -211,18 +252,37 @@ document.querySelectorAll('.column').forEach(column => {
                 task.status = newStatus;
                 saveTasks();
                 renderTasks();
+                showSyncReminder();
             }
         }
     });
 });
 
+// Refresh button - reload from repo
+document.getElementById('refreshBtn')?.addEventListener('click', () => {
+    loadTasks();
+});
+
 // Initialize
 loadTasks();
 
-// Export tasks as JSON (for syncing to GitHub later)
-window.exportTasks = () => JSON.stringify(tasks, null, 2);
+// Export tasks as JSON (for Rene to sync to repo)
+window.exportTasks = () => {
+    return JSON.stringify({
+        lastUpdated: new Date().toISOString(),
+        tasks: tasks
+    }, null, 2);
+};
+
 window.importTasks = (json) => {
-    tasks = JSON.parse(json);
+    const data = JSON.parse(json);
+    tasks = data.tasks || data;
     saveTasks();
     renderTasks();
+};
+
+// Copy export to clipboard
+window.copyTasksToClipboard = () => {
+    navigator.clipboard.writeText(window.exportTasks());
+    alert('Tasks copied! Send to Rene to sync.');
 };

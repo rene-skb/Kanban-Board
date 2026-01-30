@@ -1,0 +1,45 @@
+{
+  "lastUpdated": "2026-01-29T17:00:00Z",
+  "tasks": [
+    {
+      "id": 1706554800000,
+      "title": "Welcome to our Kanban! 🎉",
+      "description": "Drag cards between columns. Click to edit. This board syncs from tasks.json in the repo.",
+      "status": "done",
+      "assignee": "rene",
+      "created": "2026-01-29T17:00:00Z"
+    },
+    {
+      "id": 1706554800001,
+      "title": "Build kanban board",
+      "description": "Create a simple kanban app we can both use to track work",
+      "status": "done",
+      "assignee": "both",
+      "created": "2026-01-29T17:00:00Z"
+    },
+    {
+      "id": 1706554800002,
+      "title": "Summarize Building a Second Brain",
+      "description": "Research the BASB methodology and create a summary for Scott",
+      "status": "done",
+      "assignee": "rene",
+      "created": "2026-01-29T15:00:00Z"
+    },
+    {
+      "id": 1706554800003,
+      "title": "Set up GitHub for Rene",
+      "description": "Create account, SSH keys, configure git",
+      "status": "done",
+      "assignee": "both",
+      "created": "2026-01-29T16:00:00Z"
+    },
+    {
+      "id": 1706554800004,
+      "title": "Add real-time sync (future)",
+      "description": "Consider adding Supabase or Firebase for live collaboration",
+      "status": "todo",
+      "assignee": "both",
+      "created": "2026-01-29T17:00:00Z"
+    }
+  ]
+}

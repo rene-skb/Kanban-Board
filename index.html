@@ -9,7 +9,11 @@
 <body>
     <header>
         <h1>🧠 Rene & Scott's Board</h1>
-        <button id="addTaskBtn" class="add-btn">+ Add Task</button>
+        <div class="header-actions">
+            <span id="sync-status" class="sync-status">Loading...</span>
+            <button id="refreshBtn" class="refresh-btn" title="Refresh from repo">🔄</button>
+            <button id="addTaskBtn" class="add-btn">+ Add Task</button>
+        </div>
     </header>
     
     <main class="board">

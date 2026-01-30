@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rene & Scott's Kanban</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🧠 Rene & Scott's Board</h1>
+        <button id="addTaskBtn" class="add-btn">+ Add Task</button>
+    </header>
+    
+    <main class="board">
+        <div class="column" data-status="todo">
+            <h2>📋 Todo</h2>
+            <div class="tasks" id="todo"></div>
+        </div>
+        
+        <div class="column" data-status="in-progress">
+            <h2>🔨 In Progress</h2>
+            <div class="tasks" id="in-progress"></div>
+        </div>
+        
+        <div class="column" data-status="done">
+            <h2>✅ Done</h2>
+            <div class="tasks" id="done"></div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Task Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add Task</h2>
+            <input type="text" id="taskTitle" placeholder="Task title..." />
+            <textarea id="taskDesc" placeholder="Description (optional)..."></textarea>
+            <select id="taskAssignee">
+                <option value="rene">🤖 Rene</option>
+                <option value="scott">👨‍💻 Scott</option>
+                <option value="both">🤝 Both</option>
+            </select>
+            <div class="modal-actions">
+                <button id="saveTask" class="save-btn">Save</button>
+                <button id="cancelTask" class="cancel-btn">Cancel</button>
+                <button id="deleteTask" class="delete-btn hidden">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

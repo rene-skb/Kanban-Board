@@ -263,6 +263,25 @@ document.getElementById('refreshBtn')?.addEventListener('click', () => {
     loadTasks();
 });
 
+// Export button - copy tasks to clipboard for sharing with Rene
+document.getElementById('exportBtn')?.addEventListener('click', async () => {
+    const exportData = JSON.stringify({
+        lastUpdated: new Date().toISOString(),
+        tasks: tasks
+    }, null, 2);
+    
+    try {
+        await navigator.clipboard.writeText(exportData);
+        const btn = document.getElementById('exportBtn');
+        const original = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => btn.textContent = original, 2000);
+    } catch (err) {
+        // Fallback for older browsers
+        prompt('Copy this and send to Rene:', exportData);
+    }
+});
+
 // Initialize
 loadTasks();
 

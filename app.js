@@ -196,8 +196,13 @@ document.getElementById('deleteTask').addEventListener('click', () => {
     }
 });
 
-// Add task button
+// Add task button (header)
 document.getElementById('addTaskBtn').addEventListener('click', () => openModal());
+
+// Add task button (column)
+document.querySelectorAll('.column-add-btn').forEach(btn => {
+    btn.addEventListener('click', () => openModal());
+});
 
 // Close modal on outside click
 modal.addEventListener('click', (e) => {

@@ -97,12 +97,39 @@ header h1 {
     min-height: 70vh;
 }
 
-.column h2 {
-    font-size: 1rem;
-    font-weight: 600;
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.column h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.column-add-btn {
+    background: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column-add-btn:hover {
+    background: rgba(74, 222, 128, 0.4);
 }
 
 .tasks {

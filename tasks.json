@@ -1,13 +1,133 @@
 {
-  "lastUpdated": "2026-01-29T17:00:00Z",
+  "lastUpdated": "2026-02-07T05:15:00Z",
   "tasks": [
     {
-      "id": 1706554800000,
-      "title": "Welcome to our Kanban! 🎉",
-      "description": "Drag cards between columns. Click to edit. This board syncs from tasks.json in the repo.",
+      "id": 1738900000001,
+      "title": "DJ Tracklist Tool — Build Session",
+      "description": "Build the audio fingerprinting tool. Scheduled: Feb 7 @ 11:30 AM",
+      "status": "todo",
+      "assignee": "both",
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000002,
+      "title": "Deploy Skill Store to Vercel",
+      "description": "Run vercel in /projects/skill-store/",
+      "status": "todo",
+      "assignee": "scott",
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000003,
+      "title": "Create Lemon Squeezy account",
+      "description": "For fiat payments on skill store. lemonsqueezy.com",
+      "status": "todo",
+      "assignee": "scott",
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000004,
+      "title": "Create OpenNode account",
+      "description": "For Bitcoin payments on skill store. opennode.com",
+      "status": "todo",
+      "assignee": "scott",
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000005,
+      "title": "Build Color Palette Generator skill",
+      "description": "Brand color → full accessible color system",
+      "status": "todo",
+      "assignee": "rene",
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000006,
+      "title": "Build A11y Copilot skill",
+      "description": "Real-time accessibility auditing for designs",
+      "status": "todo",
+      "assignee": "rene",
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000007,
+      "title": "Landing Page Architect skill",
+      "description": "Refining the skill based on agency research",
+      "status": "in-progress",
+      "assignee": "rene",
+      "created": "2026-02-06T04:00:00Z"
+    },
+    {
+      "id": 1738900000008,
+      "title": "Designer Persona Package",
+      "description": "Building SOUL.md + principles for design-minded Clawdbot",
+      "status": "in-progress",
+      "assignee": "both",
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000009,
+      "title": "Kanban board v2 redesign",
+      "description": "Applied design principles: flat dark, whitespace, clean cards",
       "status": "done",
       "assignee": "rene",
-      "created": "2026-01-29T17:00:00Z"
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000010,
+      "title": "Design Lessons #1-5 documented",
+      "description": "Whitespace, spacing=weight, hierarchy, single focus, Einstein rule",
+      "status": "done",
+      "assignee": "both",
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000011,
+      "title": "Before/After comparisons",
+      "description": "Changelog Composer, Skill Store homepage, Kanban board",
+      "status": "done",
+      "assignee": "rene",
+      "created": "2026-02-06T04:00:00Z"
+    },
+    {
+      "id": 1738900000012,
+      "title": "Agency website research",
+      "description": "Analyzed 20+ top design agencies, extracted patterns",
+      "status": "done",
+      "assignee": "rene",
+      "created": "2026-02-06T04:00:00Z"
+    },
+    {
+      "id": 1738900000013,
+      "title": "DJ Tracklist Tool research",
+      "description": "Audio fingerprinting APIs, existing tools, 15-step build plan",
+      "status": "done",
+      "assignee": "rene",
+      "created": "2026-02-06T03:00:00Z"
+    },
+    {
+      "id": 1738900000014,
+      "title": "Changelog Composer skill",
+      "description": "Git commits → polished release notes. Working tool.",
+      "status": "done",
+      "assignee": "rene",
+      "created": "2026-02-06T02:00:00Z"
+    },
+    {
+      "id": 1738900000015,
+      "title": "Payment infrastructure research",
+      "description": "Lemon Squeezy vs Gumroad, OpenNode for Bitcoin",
+      "status": "done",
+      "assignee": "rene",
+      "created": "2026-02-06T02:00:00Z"
+    },
+    {
+      "id": 1738900000016,
+      "title": "Skill Store landing pages",
+      "description": "Built index.html and changelog-composer page",
+      "status": "done",
+      "assignee": "rene",
+      "created": "2026-02-05T02:00:00Z"
     },
     {
       "id": 1706554800001,
@@ -32,14 +152,6 @@
       "status": "done",
       "assignee": "both",
       "created": "2026-01-29T16:00:00Z"
-    },
-    {
-      "id": 1706554800004,
-      "title": "Add real-time sync (future)",
-      "description": "Consider adding Supabase or Firebase for live collaboration",
-      "status": "todo",
-      "assignee": "both",
-      "created": "2026-01-29T17:00:00Z"
     }
   ]
 }

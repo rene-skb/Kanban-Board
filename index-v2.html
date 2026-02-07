@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rene & Scott's Kanban</title>
+    <link rel="stylesheet" href="style-v2.css">
+</head>
+<body>
+    <header>
+        <h1>Rene & Scott's Board</h1>
+        <div class="header-actions">
+            <span id="sync-status" class="sync-status">Last synced: 9:02 PM</span>
+            <button id="refreshBtn" class="refresh-btn" title="Refresh from repo">↻</button>
+            <button id="exportBtn" class="export-btn" title="Export tasks">Export</button>
+            <button id="addTaskBtn" class="add-btn">+ Add Task</button>
+        </div>
+    </header>
+    
+    <main class="board">
+        <div class="column" data-status="todo">
+            <div class="column-header">
+                <h2>Todo</h2>
+                <button class="column-add-btn" data-status="todo" title="Add task">+</button>
+            </div>
+            <div class="tasks" id="todo">
+                <div class="task-card" data-assignee="both">
+                    <h3>Add real-time sync (future)</h3>
+                    <p>Consider adding Supabase or Firebase for live collaboration</p>
+                    <span class="assignee">Both</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="column" data-status="in-progress">
+            <div class="column-header">
+                <h2>In Progress</h2>
+            </div>
+            <div class="tasks" id="in-progress"></div>
+        </div>
+        
+        <div class="column" data-status="done">
+            <div class="column-header">
+                <h2>Done</h2>
+            </div>
+            <div class="tasks" id="done">
+                <div class="task-card" data-assignee="rene">
+                    <h3>Welcome to our Kanban! 🎉</h3>
+                    <p>Drag cards between columns. Click to edit. This board syncs from tasks.json in the repo.</p>
+                    <span class="assignee">Rene</span>
+                </div>
+                <div class="task-card" data-assignee="both">
+                    <h3>Build kanban board</h3>
+                    <p>Create a simple kanban app we can both use to track work</p>
+                    <span class="assignee">Both</span>
+                </div>
+                <div class="task-card" data-assignee="rene">
+                    <h3>Summarize Building a Second Brain</h3>
+                    <p>Research the BASB methodology and create a summary for Scott</p>
+                    <span class="assignee">Rene</span>
+                </div>
+                <div class="task-card" data-assignee="both">
+                    <h3>Set up GitHub for Rene</h3>
+                    <p>Create account, SSH keys, configure git</p>
+                    <span class="assignee">Both</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Task Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add Task</h2>
+            <input type="text" id="taskTitle" placeholder="Task title..." />
+            <textarea id="taskDesc" placeholder="Description (optional)..."></textarea>
+            <select id="taskAssignee">
+                <option value="rene">Rene</option>
+                <option value="scott">Scott</option>
+                <option value="both">Both</option>
+            </select>
+            <div class="modal-actions">
+                <button id="saveTask" class="save-btn">Save</button>
+                <button id="cancelTask" class="cancel-btn">Cancel</button>
+                <button id="deleteTask" class="delete-btn hidden">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

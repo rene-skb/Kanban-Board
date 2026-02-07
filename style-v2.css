@@ -38,7 +38,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1.5rem 3rem;
     border-bottom: 1px solid var(--border);
 }
 
@@ -119,7 +119,7 @@ header h1 {
 /* Columns */
 .column {
     background: var(--bg);
-    padding: 1.5rem;
+    padding: 2.5rem;
     min-height: 100%;
 }
 
@@ -127,7 +127,7 @@ header h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .column h2 {
@@ -162,14 +162,14 @@ header h1 {
 .tasks {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .task-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 1rem;
+    padding: 1.25rem 1.5rem;
     cursor: grab;
     transition: all 0.2s;
 }
@@ -187,15 +187,15 @@ header h1 {
 .task-card h3 {
     font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: 0.4rem;
-    line-height: 1.4;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
 }
 
 .task-card p {
     font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 0.75rem;
-    line-height: 1.5;
+    margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 .task-card .assignee {

@@ -8,11 +8,11 @@
 </head>
 <body>
     <header>
-        <h1>🧠 Rene & Scott's Board</h1>
+        <h1>Rene & Scott's Board</h1>
         <div class="header-actions">
             <span id="sync-status" class="sync-status">Loading...</span>
-            <button id="refreshBtn" class="refresh-btn" title="Refresh from repo">🔄</button>
-            <button id="exportBtn" class="export-btn" title="Copy tasks to share with Rene">📋 Export</button>
+            <button id="refreshBtn" class="refresh-btn" title="Refresh from repo">↻</button>
+            <button id="exportBtn" class="export-btn" title="Export tasks">Export</button>
             <button id="addTaskBtn" class="add-btn">+ Add Task</button>
         </div>
     </header>
@@ -20,19 +20,23 @@
     <main class="board">
         <div class="column" data-status="todo">
             <div class="column-header">
-                <h2>📋 Todo</h2>
+                <h2>Todo</h2>
                 <button class="column-add-btn" data-status="todo" title="Add task">+</button>
             </div>
             <div class="tasks" id="todo"></div>
         </div>
         
         <div class="column" data-status="in-progress">
-            <h2>🔨 In Progress</h2>
+            <div class="column-header">
+                <h2>In Progress</h2>
+            </div>
             <div class="tasks" id="in-progress"></div>
         </div>
         
         <div class="column" data-status="done">
-            <h2>✅ Done</h2>
+            <div class="column-header">
+                <h2>Done</h2>
+            </div>
             <div class="tasks" id="done"></div>
         </div>
     </main>
@@ -44,9 +48,9 @@
             <input type="text" id="taskTitle" placeholder="Task title..." />
             <textarea id="taskDesc" placeholder="Description (optional)..."></textarea>
             <select id="taskAssignee">
-                <option value="rene">🤖 Rene</option>
-                <option value="scott">👨‍💻 Scott</option>
-                <option value="both">🤝 Both</option>
+                <option value="rene">Rene</option>
+                <option value="scott">Scott</option>
+                <option value="both">Both</option>
             </select>
             <div class="modal-actions">
                 <button id="saveTask" class="save-btn">Save</button>

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-07T05:15:00Z",
+  "lastUpdated": "2026-02-07T06:35:00Z",
   "tasks": [
     {
       "id": 1738900000001,
@@ -7,14 +7,6 @@
       "description": "Build the audio fingerprinting tool. Scheduled: Feb 7 @ 11:30 AM",
       "status": "todo",
       "assignee": "both",
-      "created": "2026-02-06T05:00:00Z"
-    },
-    {
-      "id": 1738900000002,
-      "title": "Deploy Skill Store to Vercel",
-      "description": "Run vercel in /projects/skill-store/",
-      "status": "todo",
-      "assignee": "scott",
       "created": "2026-02-06T05:00:00Z"
     },
     {
@@ -50,6 +42,14 @@
       "created": "2026-02-06T05:00:00Z"
     },
     {
+      "id": 1738900000017,
+      "title": "Merge masters research into Designer Persona",
+      "description": "Update SOUL.md + DESIGN-PRINCIPLES.md with research findings",
+      "status": "todo",
+      "assignee": "rene",
+      "created": "2026-02-07T06:30:00Z"
+    },
+    {
       "id": 1738900000007,
       "title": "Landing Page Architect skill",
       "description": "Refining the skill based on agency research",
@@ -62,6 +62,22 @@
       "title": "Designer Persona Package",
       "description": "Building SOUL.md + principles for design-minded Clawdbot",
       "status": "in-progress",
+      "assignee": "both",
+      "created": "2026-02-06T05:00:00Z"
+    },
+    {
+      "id": 1738900000018,
+      "title": "Design Masters research",
+      "description": "Researched 14 legendary designers, extracted universal principles",
+      "status": "done",
+      "assignee": "rene",
+      "created": "2026-02-07T06:30:00Z"
+    },
+    {
+      "id": 1738900000002,
+      "title": "Deploy Skill Store to Vercel",
+      "description": "skill-store-three.vercel.app — LIVE!",
+      "status": "done",
       "assignee": "both",
       "created": "2026-02-06T05:00:00Z"
     },
